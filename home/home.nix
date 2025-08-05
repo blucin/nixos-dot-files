@@ -3,7 +3,7 @@
   home.homeDirectory = "/home/alice";
   home.stateVersion = "25.05";
 
-  home.packages = with pkgs; [ htop git homemanager ];
+  home.packages = with pkgs; [ htop git home-manager ];
 
   programs.git = {
     enable = true;

@@ -21,9 +21,15 @@
           ./hosts/sandcastle/default.nix
         ];
       };
+      camelot = nixpkgs.lib.nixosSystem {
+        inherit system;
+        modules = [
+          ./hosts/camelot/default.nix
+        ];
+      };
     };
 
-    homeConfigurations."alice@sandcastle" = home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."blucin@camelot" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [
         ./home/home.nix

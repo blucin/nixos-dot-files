@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  home.username = "alice";
-  home.homeDirectory = "/home/alice";
+  home.username = "blucin";
+  home.homeDirectory = "/home/blucin";
   home.stateVersion = "25.05";
 
   home.packages = with pkgs; [ htop git home-manager ];

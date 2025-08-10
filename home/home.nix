@@ -4,6 +4,7 @@
     ./modules/i3
     ./modules/polybar
     ./modules/rofi
+    ./modules/alacritty
     ./modules/starship
     ./modules/fish.nix
     ./modules/git.nix
@@ -14,6 +15,7 @@
   home.packages = with pkgs; [
     alacritty
     copyq
+    easyeffects
     polybarFull
     dunst
     git
@@ -24,9 +26,9 @@
     nitch
     nitrogen
     zed-editor
+    rofi
+    ksnip
     starship
-
-    # File manager
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin

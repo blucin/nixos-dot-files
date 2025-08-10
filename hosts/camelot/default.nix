@@ -58,7 +58,13 @@
   };
 
   # Packages
-  environment.systemPackages = with pkgs; [ vim git wget ];
+  environment.systemPackages = with pkgs; [
+    vim
+    git
+    wget
+    pavucontrol
+    easyeffects
+  ];
   nixpkgs.config.allowUnfree = true;
 
   # Some programs need SUID wrappers, can be configured further or are

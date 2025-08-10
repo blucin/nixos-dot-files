@@ -1,5 +1,16 @@
-# [WIP] NixOS dot files
+# NixOS dot files
 
-- [x] Setup standalone home-manage & flakes
-- [ ] Install on bare metal host
-- [ ] Configure desktop and dot-files to match dot-files-arch repo
+This repo contains my NixOS configuration files with an i3wm setup :)
+
+![screenshot](./assets/screenshot.png)
+
+## Usage
+
+1. Create your host configuration
+
+```
+cp /etc/nixos/configuration.nix ./hosts/default.nix
+cp /etc/nixos/hardware-configuration.nix ./hosts/hardware-configuration.nix
+```
+
+2. Edit the `flake.nix` and `home.nix` for your user setup.

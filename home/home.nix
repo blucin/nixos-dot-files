@@ -13,6 +13,9 @@
     ./modules/theme.nix
   ];
 
+  home.username = "blucin";
+  home.homeDirectory = "/home/blucin";
+
   home.packages = with pkgs; [
     alacritty
     btop
@@ -40,8 +43,6 @@
     xarchiver
   ];
 
-  home.username = "blucin";
-  home.homeDirectory = "/home/blucin";
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "25.05";
 }

@@ -21,6 +21,7 @@
   # Networking
   networking.hostName = "camelot";
   networking.networkmanager.enable = true;
+  networking.firewall.enable = true;
 
   # Timezone
   time.timeZone = "Asia/Kolkata";
@@ -33,20 +34,26 @@
   };
 
   # Services
-  services.xserver.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.xkb.layout = "us";
-  services.xserver.xkb.options = "eurosign:e,caps:escape";
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  services.xserver.deviceSection = ''
-    Option "TearFree" "true"
-  '';
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
+  services = {
+    xserver.enable = true;
+    xserver.displayManager.lightdm.enable = true;
+    xserver.windowManager.i3.enable = true;
+    xserver.xkb.layout = "us";
+    xserver.xkb.options = "eurosign:e,caps:escape";
+    xserver.videoDrivers = [ "amdgpu" ];
+    xserver.deviceSection = ''
+      Option "TearFree" "true"
+    '';
+    pipewire = {
+      enable = true;
+      pulse.enable = true;
+    };
+    openssh.enable = true;
+    syncthing = {
+      enable = true;
+      openDefaultPorts = true;
+    };
   };
-  services.openssh.enable = true;
 
   # Users
   users.users = {
@@ -62,8 +69,10 @@
     vim
     git
     wget
+    syncthing
     pavucontrol
     easyeffects
+    libnotify
     fish
   ];
   nixpkgs.config.allowUnfree = true;

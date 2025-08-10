@@ -15,17 +15,21 @@
 
   home.packages = with pkgs; [
     alacritty
+    btop
     copyq
     easyeffects
     polybarFull
     dunst
     git
     htop
+    lazygit
     home-manager
     vesktop
     neovim
+    ncdu
     nitch
     nitrogen
+    networkmanagerapplet
     zed-editor
     rofi
     ksnip

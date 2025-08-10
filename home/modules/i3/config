@@ -129,7 +129,6 @@ bindsym $mod+Shift+U exec kruler
 # Rofi binds
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/launcher/config.rasi
 bindsym $mod+BackSpace exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
-bindsym $mod+Alt+Shift+m exex --no-startup-id ~/.config/rofi/mpd/mpd.sh
 bindsym $mod+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launcher/config.rasi
 
 # Window binds

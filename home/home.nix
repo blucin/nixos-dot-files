@@ -2,6 +2,9 @@
 
   imports = [
     ./modules/i3
+    ./modules/polybar
+    ./modules/rofi
+    ./modules/starship
     ./modules/fish.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
@@ -11,7 +14,7 @@
   home.packages = with pkgs; [
     alacritty
     copyq
-    polybar
+    polybarFull
     dunst
     git
     htop

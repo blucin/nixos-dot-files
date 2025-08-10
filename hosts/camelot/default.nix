@@ -24,7 +24,7 @@
 
   # Timezone
   time.timeZone = "Asia/Kolkata";
-	
+
   # Locale
   i18n.defaultLocale = "en_US.UTF-8";
   console = {
@@ -34,6 +34,14 @@
 
   # Services
   services.xserver.enable = true;
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
+  services.xserver.xkb.layout = "us";
+  services.xserver.xkb.options = "eurosign:e,caps:escape";
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.deviceSection = ''
+    Option "TearFree" "true"
+  '';
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -61,9 +69,14 @@
     enableSSHSupport = true;
   };
 
-  # Flakes
+  # Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+  nix.settings.auto-optimise-store = true;
 
   system.stateVersion = "25.05";
 }
-

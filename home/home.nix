@@ -1,22 +1,29 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
+
+  imports = [
+    ./modules/fish.nix
+    ./modules/git.nix
+    ./modules/zen-browser.nix
+  ];
+
   home.username = "blucin";
   home.homeDirectory = "/home/blucin";
   home.stateVersion = "25.05";
 
-  home.packages = with pkgs; [ htop git home-manager ];
+  home.packages = with pkgs; [
+    alacritty
+    git
+    htop
+    home-manager
+    firefox
+    neovim
+    nitch
+    nitrogen
+    zed-editor
 
-  programs.git = {
-    enable = true;
-    userName = "blucin";
-    userEmail = "blucin@users.noreply.github.com";  # No-reply email
-    extraConfig = {
-      init.defaultBranch = "main";
-      pull.rebase = true;
-    };
-  };
-
-  programs.fish.enable = true;
-
-  # Import modules from home/modules/ for reusability, e.g., imports = [ ./modules/example.nix ];
+    # File manager
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
+  ];
 }
-

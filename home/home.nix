@@ -2,11 +2,12 @@
 
   imports = [
     ./modules/i3
+    ./modules/dunst
     ./modules/polybar
+    ./modules/fish
     ./modules/rofi
     ./modules/alacritty
     ./modules/starship
-    ./modules/fish.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix

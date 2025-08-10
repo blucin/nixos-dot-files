@@ -4,18 +4,15 @@
     ./modules/fish.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
+    ./modules/theme.nix
   ];
-
-  home.username = "blucin";
-  home.homeDirectory = "/home/blucin";
-  home.stateVersion = "25.05";
 
   home.packages = with pkgs; [
     alacritty
     git
     htop
     home-manager
-    firefox
+    vesktop
     neovim
     nitch
     nitrogen
@@ -26,4 +23,9 @@
     xfce.thunar-volman
     xfce.thunar-archive-plugin
   ];
+
+  home.username = "blucin";
+  home.homeDirectory = "/home/blucin";
+  systemd.user.startServices = "sd-switch";
+  home.stateVersion = "25.05";
 }

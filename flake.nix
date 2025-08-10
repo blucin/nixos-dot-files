@@ -11,9 +11,13 @@
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -37,9 +41,9 @@
       inherit pkgs;
       extraSpecialArgs = { inherit inputs; };
       modules = [
+        inputs.stylix.homeModules.stylix
         ./home/home.nix
       ];
     };
   };
 }
-

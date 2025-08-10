@@ -1,0 +1,244 @@
+# -----------------------------------------------------------------------
+# i3 config file (v4)
+# -----------------------------------------------------------------------
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+
+# -----------------------------------------------------------------------
+# Variables
+# -----------------------------------------------------------------------
+set $mod Mod4
+set $explorer thunar
+set $term alacritty
+set $browser io.github.zen_browser.zen
+
+
+
+# -----------------------------------------------------------------------
+# General configuration
+# -----------------------------------------------------------------------
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# move tiling windows via drag & drop by left-clicking into the title bar,
+# or left-clicking anywhere into the window while holding the floating modifier.
+tiling_drag modifier titlebar
+
+# Font for window titles. Will also be used by the bar unless a different font
+font pango:JetBrainsMono Nerd Font Mono Medium 11
+
+
+
+# -----------------------------------------------------------------------
+# Execs
+# -----------------------------------------------------------------------
+# Display Refresh Rate TODO: use some generic util
+exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 74.97
+
+# Start XDG autostart .desktop files using dex. See also
+# https://wiki.archlinux.org/index.php/XDG_Autostart
+exec --no-startup-id dex --autostart --environment i3
+
+# Kanata - a keyboard remapper
+# Prerequisite:
+# sudo groupadd uinput
+# sudo usermod -aG uinput $USER
+# sudo usermod -aG input $USER
+# exec --no-startup-id kanata -c ~/.config/kanata/config.kbd
+
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork --color=000000
+
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+
+# CopyQ: A clipboard manager
+exec --no-startup-id sleep 5; copyq
+
+# Nitrogen A Wallpaper Manager - restore last wallpaper
+exec --no-startup-id nitrogen --restore
+
+# Thunar Daemon (Starts thunar up quickly)
+exec thunar --daemon
+
+# Polybar: A status bar for X11
+exec --no-startup-id ~/.config/polybar/launch_polybar.sh
+
+# Tell gtk-4.0 to use the dark theme
+exec --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+exec --no-startup-id gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+
+
+
+# -----------------------------------------------------------------------
+# Colors - i3
+# -----------------------------------------------------------------------
+#set $primary    #FFC799
+#set $secondary  #99FFE4
+set $primary    #82CFFF
+set $secondary  #FF7EB6
+set $background #000000
+set $text       #FFFFFF
+# class                 border      backgr.       text            indicator     child border
+client.focused          $primary    $primary      $background     $secondary
+client.unfocused        $background $background   $text           $secondary    $secondary
+client.focused_inactive $background $background   $text           $secondary
+# Note: the child border in 2nd row is the border color of an inactive window in non-stack mode
+
+
+
+# -----------------------------------------------------------------------
+# Border and title bar
+# -----------------------------------------------------------------------
+title_align center
+default_border pixel 3
+# Show title bars in stacking/tabbed modes
+for_window [tiling] border pixel 3
+# force cycle through title bars
+# default title bar -> no decoration -> full decoration (titlebar + borders)
+bindsym $mod+shift+t exec i3-msg "border toggle"
+
+
+
+# -----------------------------------------------------------------------
+# Keybinds
+# -----------------------------------------------------------------------
+# Apps
+bindsym $mod+Return exec $term
+bindsym $mod+Ctrl+E exec $explorer
+bindsym $mod+Ctrl+B exec $browser
+
+# Floating quick vim editor
+bindsym $mod+q exec ~/.local/bin/vimedit --class __text_scratchpad
+for_window [instance="__text_scratchpad"] floating enable
+
+# Screenshot util ksnip
+bindsym $mod+Shift+S exec ksnip -r
+bindsym $mod+Shift+F exec ksnip -r -f
+for_window [title="ksnip - Unsaved"] move scratchpad
+
+# Notification control dunst
+bindsym $mod+Shift+D exec --no-startup-id ~/.local/bin/dunst_toggle.sh
+
+# Screen ruler kruler
+for_window [title="KRuler — KDE Screen Ruler"] floating enable
+bindsym $mod+Shift+U exec kruler
+
+# Rofi binds
+bindsym $mod+d exec --no-startup-id rofi -show drun -theme ~/.config/rofi/launcher/config.rasi
+bindsym $mod+BackSpace exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+Alt+Shift+m exex --no-startup-id ~/.config/rofi/mpd/mpd.sh
+bindsym $mod+Tab exec --no-startup-id rofi -show window -theme ~/.config/rofi/launcher/config.rasi
+
+# Window binds
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+b split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+bindsym $mod+x focus child
+bindsym $mod+Shift+q kill
+
+# Vim marks for windows (can be used with scratchpad or any other window)
+# read: https://lottalinuxlinks.com/i3-scratchpad-and-vim-like-marks/
+bindsym $mod+m exec rofi -dmenu -p "Mark: " -theme ~/.config/rofi/prompt/config.rasi | xargs -I {} i3-msg mark {}
+bindsym $mod+g exec rofi -dmenu -p "Goto: " -theme ~/.config/rofi/prompt/config.rasi | xargs -I {} i3-msg [con_mark="{}"] focus
+bindsym $mod+Shift+m exec i3-msg "unmark"
+
+# i3 related
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Volume and Brightness
+# Use pactl to adjust volume in PulseAudio.
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+# Brightness control (use some universal util TODO)
+
+
+
+# -----------------------------------------------------------------------
+# Workspace configurations
+# -----------------------------------------------------------------------
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+# switch to workspace
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+
+# -----------------------------------------------------------------------
+# Window Resizing
+# -----------------------------------------------------------------------
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+
+# -----------------------------------------------------------------------
+# Scratch pad with vim marks
+# -----------------------------------------------------------------------
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Show the sup-mail scratchpad window, if any.
+bindsym $mod+Alt+s [title="^Sup ::"] scratchpad show

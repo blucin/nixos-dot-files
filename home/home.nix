@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
 
   imports = [
+    ./modules/i3
     ./modules/fish.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
@@ -9,6 +10,9 @@
 
   home.packages = with pkgs; [
     alacritty
+    copyq
+    polybar
+    dunst
     git
     htop
     home-manager
@@ -17,11 +21,13 @@
     nitch
     nitrogen
     zed-editor
+    starship
 
     # File manager
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin
+    xarchiver
   ];
 
   home.username = "blucin";

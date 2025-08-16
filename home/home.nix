@@ -27,12 +27,12 @@
     htop
     lazygit
     home-manager
+    just
     vesktop
     neovim
     ncdu
     nitch
     nitrogen
-    networkmanagerapplet
     zed-editor
     rofi
     ksnip

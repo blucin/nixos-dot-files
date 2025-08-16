@@ -70,10 +70,13 @@
     git
     wget
     syncthing
+    nixd
     pavucontrol
     easyeffects
     libnotify
     fish
+    gvfs
+    xclip
   ];
   nixpkgs.config.allowUnfree = true;
 
@@ -85,6 +88,7 @@
     enable = true;
     enableSSHSupport = true;
   };
+  programs.nm-applet.enable = true;
 
   # Nix
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

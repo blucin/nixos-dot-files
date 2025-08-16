@@ -1,4 +1,8 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, inputs, ... }:
+let
+  username = "blucin";
+  homeDirectory = "/home/blucin";
+in {
 
   imports = [
     ./modules/i3
@@ -13,8 +17,8 @@
     ./modules/theme.nix
   ];
 
-  home.username = "blucin";
-  home.homeDirectory = "/home/blucin";
+  home.username = username;
+  home.homeDirectory = homeDirectory;
 
   home.packages = with pkgs; [
     alacritty
@@ -42,6 +46,12 @@
     xfce.thunar-archive-plugin
     xarchiver
   ];
+
+  services = {
+    syncthing = {
+      enable = true;
+    };
+  };
 
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "25.05";

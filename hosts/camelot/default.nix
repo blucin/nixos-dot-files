@@ -22,6 +22,8 @@
   networking.hostName = "camelot";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
+  networking.firewall.allowedTCPPorts = [ 22000 ];
+  networking.firewall.allowedUDPPorts = [ 21027 ];
 
   # Timezone
   time.timeZone = "Asia/Kolkata";
@@ -49,10 +51,6 @@
       pulse.enable = true;
     };
     openssh.enable = true;
-    syncthing = {
-      enable = true;
-      openDefaultPorts = true;
-    };
   };
 
   # Users

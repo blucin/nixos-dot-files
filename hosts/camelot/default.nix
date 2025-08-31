@@ -2,13 +2,18 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader
   boot.loader.grub.enable = true;
@@ -22,7 +27,6 @@
   networking.hostName = "camelot";
   networking.networkmanager.enable = true;
   networking.firewall.enable = true;
-  networking.firewall.allowedTCPPorts = [ 22000 ];
   networking.firewall.allowedUDPPorts = [ 21027 ];
 
   # Timezone
@@ -57,9 +61,17 @@
   users.users = {
     blucin = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [
+        "docker"
+        "wheel"
+        "networkmanager"
+      ];
       initialPassword = "changeme";
     };
+  };
+
+  virtualisation = {
+    docker.enable = true;
   };
 
   # Packages
@@ -89,7 +101,10 @@
   programs.nm-applet.enable = true;
 
   # Nix
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   nix.gc = {
     automatic = true;
     dates = "weekly";

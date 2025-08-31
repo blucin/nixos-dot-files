@@ -2,7 +2,8 @@
 let
   username = "blucin";
   homeDirectory = "/home/blucin";
-in {
+in
+{
 
   imports = [
     ./modules/i3
@@ -12,6 +13,7 @@ in {
     ./modules/rofi
     ./modules/alacritty
     ./modules/starship
+    ./modules/k3d.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix
@@ -22,6 +24,7 @@ in {
 
   home.packages = with pkgs; [
     alacritty
+    bat
     btop
     copyq
     easyeffects
@@ -36,7 +39,9 @@ in {
     neovim
     ncdu
     nitch
+    nil
     nitrogen
+    docker-compose
     zed-editor
     rofi
     ksnip

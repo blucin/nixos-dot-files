@@ -15,6 +15,7 @@ in
     ./modules/starship
     ./modules/zed
     ./modules/nodejs.nix
+    ./modules/rust.nix
     ./modules/k3d.nix
     ./modules/git.nix
     ./modules/zen-browser.nix

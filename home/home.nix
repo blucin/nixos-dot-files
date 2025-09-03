@@ -13,6 +13,7 @@ in
     ./modules/rofi
     ./modules/alacritty
     ./modules/starship
+    ./modules/nodejs.nix
     ./modules/k3d.nix
     ./modules/git.nix
     ./modules/zen-browser.nix

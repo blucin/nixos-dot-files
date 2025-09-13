@@ -2,14 +2,13 @@
 
 {
   home.packages = with pkgs; [
-    rustup
-    cargo
+    gcc
+    rustc
     rust-analyzer
+    cargo
     cargo-edit
     cargo-watch
     cargo-outdated
-    clippy
-    rustfmt
   ];
 
 }

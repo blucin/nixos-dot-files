@@ -26,8 +26,14 @@
   # Networking
   networking.hostName = "camelot";
   networking.networkmanager.enable = true;
-  networking.firewall.enable = true;
-  networking.firewall.allowedUDPPorts = [ 21027 ];
+  networking.firewall = {
+    enable = true;
+    allowPing = true;
+    # 27027 - Syncthing
+    allowedUDPPorts = [
+      21027
+    ];
+  };
 
   # Timezone
   time.timeZone = "Asia/Kolkata";

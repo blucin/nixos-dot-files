@@ -4,6 +4,9 @@ let
   homeDirectory = "/home/blucin";
 in
 {
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   imports = [
     ./modules/i3
@@ -13,7 +16,6 @@ in
     ./modules/rofi
     ./modules/alacritty
     ./modules/starship
-    ./modules/zed
     ./modules/nodejs.nix
     ./modules/rust.nix
     ./modules/k3d.nix
@@ -31,11 +33,13 @@ in
     btop
     copyq
     easyeffects
+    obsidian
     polybarFull
     dunst
     git
     htop
     lazygit
+    lens
     home-manager
     just
     vesktop

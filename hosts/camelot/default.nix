@@ -84,8 +84,11 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    gvfs
+    jmtpfs
     wget
     syncthing
+    mpv
     nixd
     pavucontrol
     easyeffects

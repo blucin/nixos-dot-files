@@ -4,8 +4,7 @@ end
 
 set fish_greeting
 
-set -Ux LIBVA_DRIVER_NAME nvidia
-set -Ux GIT_EDITOR lvim
+set -Ux GIT_EDITOR nvim
 
 fish_add_path .local/bin/
 fish_add_path go/bin

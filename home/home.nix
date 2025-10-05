@@ -33,10 +33,13 @@ in
     btop
     copyq
     easyeffects
+    feh
     obsidian
+    pcmanfm
     polybarFull
     dunst
     git
+    gimp3
     htop
     lazygit
     lens

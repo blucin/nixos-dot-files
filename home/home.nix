@@ -37,6 +37,7 @@ in
     obsidian
     pcmanfm
     polybarFull
+    ungoogled-chromium
     dunst
     git
     gimp3

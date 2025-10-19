@@ -23,7 +23,11 @@
   ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.supportedFilesystems = [ "ntfs" ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [
+    "kvm-amd"
+    "i2c-dev"
+    "i2c-piix4"
+  ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
@@ -74,6 +78,7 @@
   # networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.i2c.enable = true;
   hardware.graphics.enable32Bit = true;
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

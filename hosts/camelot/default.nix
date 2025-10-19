@@ -71,6 +71,7 @@
         "docker"
         "wheel"
         "networkmanager"
+        "i2c"
       ];
       initialPassword = "changeme";
     };
@@ -96,6 +97,7 @@
     fish
     gvfs
     xclip
+    ddcutil
   ];
   nixpkgs.config.allowUnfree = true;
 

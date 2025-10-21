@@ -22,6 +22,7 @@ in
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix
+    ./modules/kde-apps
   ];
 
   home.username = username;

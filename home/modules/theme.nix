@@ -53,7 +53,7 @@
     noto-fonts-emoji
     dejavu_fonts
     # Monospace fonts
-    nerd-fonts.jetbrains-mono
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     # Icon fonts for rofi power menu
     icomoon-feather
     font-awesome

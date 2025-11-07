@@ -34,7 +34,30 @@
     useXkbConfig = true;
   };
 
-  fonts.packages = with pkgs; [ dejavu_fonts noto-fonts font-awesome ];
+  fonts.packages = with pkgs; [
+    # Base fonts
+    dejavu_fonts
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    # Modern sans-serif
+    inter
+    # Icon fonts
+    font-awesome
+    # Monospace
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+  ];
+
+  # Font configuration for better rendering
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Noto Serif" "DejaVu Serif" ];
+      sansSerif = [ "Inter" "Noto Sans" "DejaVu Sans" ];
+      monospace = [ "JetBrainsMono Nerd Font" "DejaVu Sans Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
 
   services = {
     xserver = {

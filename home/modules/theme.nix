@@ -11,7 +11,7 @@
       package = pkgs.fluent-icon-theme;
     };
     font = {
-      name = "OpenSans-Regular";
+      name = "Inter";
       size = 11;
     };
   };
@@ -32,14 +32,30 @@
     };
   };
 
-  fonts.fontconfig.enable = true;
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "Noto Serif" "DejaVu Serif" ];
+      sansSerif = [ "Inter" "Noto Sans" "DejaVu Sans" ];
+      monospace = [ "JetBrainsMono Nerd Font" "DejaVu Sans Mono" ];
+      emoji = [ "Noto Color Emoji" ];
+    };
+  };
 
   home.packages = with pkgs; [
     dconf
     fluent-gtk-theme
     fluent-icon-theme
-    open-sans
+    # Fonts for better rendering
+    inter
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-emoji
+    dejavu_fonts
+    # Monospace fonts
     nerd-fonts.jetbrains-mono
+    # Icon fonts for rofi power menu
     icomoon-feather
+    font-awesome
   ];
 }

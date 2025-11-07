@@ -56,6 +56,7 @@
     inter
     # Icon fonts
     font-awesome
+    icomoon-feather
     # Monospace
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
   ];

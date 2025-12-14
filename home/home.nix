@@ -18,7 +18,6 @@ in
     ./modules/starship
     ./modules/nodejs.nix
     ./modules/rust.nix
-    ./modules/k3d.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix

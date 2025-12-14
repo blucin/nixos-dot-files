@@ -95,7 +95,6 @@
     blucin = {
       isNormalUser = true;
       extraGroups = [
-        "docker"
         "wheel"
         "networkmanager"
         "i2c"
@@ -104,12 +103,9 @@
     };
   };
 
-  virtualisation = {
-    docker.enable = true;
-  };
-
   # Packages
   environment.systemPackages = with pkgs; [
+    android-tools
     vim
     git
     gvfs

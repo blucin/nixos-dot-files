@@ -34,7 +34,6 @@ in
     easyeffects
     feh
     obsidian
-    pcmanfm
     polybarFull
     ungoogled-chromium
     dunst

@@ -24,7 +24,6 @@ if type -q starship
     end
 end
 
-
 # abbr zellij zellij -l welcome
 
 if type -q eza
@@ -52,6 +51,3 @@ abbr glog git --no-pager log -n 10 --oneline --parents --graph --decorate
 abbr cat bat
 
 abbr hx helix
-
-# Generated for envman. Do not edit.
-test -s ~/.config/envman/load.fish; and source ~/.config/envman/load.fish

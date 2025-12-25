@@ -1,4 +1,10 @@
-{ config, lib, pkgs, ... }: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./hardware-configuration.nix
     # ../../modules/desktop.nix  # Uncomment for multi-desktop support
@@ -39,26 +45,15 @@
     dejavu_fonts
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     # Modern sans-serif
     inter
     # Icon fonts
     font-awesome
     icomoon-feather
     # Monospace
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
   ];
-
-  # Font configuration for better rendering
-  fonts.fontconfig = {
-    enable = true;
-    defaultFonts = {
-      serif = [ "Noto Serif" "DejaVu Serif" ];
-      sansSerif = [ "Inter" "Noto Sans" "DejaVu Sans" ];
-      monospace = [ "JetBrainsMono Nerd Font" "DejaVu Sans Mono" ];
-      emoji = [ "Noto Color Emoji" ];
-    };
-  };
 
   services = {
     xserver = {
@@ -86,7 +81,10 @@
   users.users = {
     alice = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ];
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+      ];
       initialPassword = "changeme";
       packages = with pkgs; [ tree ];
     };
@@ -94,7 +92,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim wget neovim git alacritty firefox spice-vdagent spice xclip
+    vim
+    wget
+    neovim
+    git
+    alacritty
+    firefox
+    spice-vdagent
+    spice
+    xclip
   ];
 
   nixpkgs.config.allowUnfree = true;
@@ -111,5 +117,8 @@
     stateVersion = "25.05";
   };
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

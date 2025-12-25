@@ -35,9 +35,19 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Noto Serif" "DejaVu Serif" ];
-      sansSerif = [ "Inter" "Noto Sans" "DejaVu Sans" ];
-      monospace = [ "JetBrainsMono Nerd Font" "DejaVu Sans Mono" ];
+      serif = [
+        "Noto Serif"
+        "DejaVu Serif"
+      ];
+      sansSerif = [
+        "Inter"
+        "Noto Sans"
+        "DejaVu Sans"
+      ];
+      monospace = [
+        "JetBrainsMono Nerd Font Mono"
+        "DejaVu Sans Mono"
+      ];
       emoji = [ "Noto Color Emoji" ];
     };
   };
@@ -50,10 +60,10 @@
     inter
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     dejavu_fonts
     # Monospace fonts
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    nerd-fonts.jetbrains-mono
     # Icon fonts for rofi power menu
     icomoon-feather
     font-awesome

@@ -10,6 +10,9 @@ upgrade-hm:
 upgrade-sys:
     sudo nixos-rebuild switch --flake ~/nixos-config#camelot
 
+list-sys:
+    sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+
 clean-sys:
     sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
 

@@ -63,6 +63,12 @@ in
     };
   };
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
+  };
+
   systemd.user.startServices = "sd-switch";
   home.stateVersion = "25.05";
 }

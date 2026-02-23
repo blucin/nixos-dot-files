@@ -64,8 +64,15 @@
   # Services
   services = {
     xserver.enable = true;
-    xserver.displayManager.lightdm.enable = true;
+
+    # Keep i3 as an available session
     xserver.windowManager.i3.enable = true;
+
+    # KDE Plasma 6 on Wayland
+    desktopManager.plasma6.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.wayland.enable = true;
+
     xserver.xkb.layout = "us";
     xserver.xkb.options = "eurosign:e,caps:escape";
     xserver.videoDrivers = [ "amdgpu" ];
@@ -92,6 +99,18 @@
     };
   };
 
+  # KDE exclusions (remove bloat from default Plasma install)
+  environment.plasma6.excludePackages = with pkgs; [
+    kdePackages.elisa
+    kdePackages.kdepim-runtime
+    kdePackages.kmahjongg
+    kdePackages.kmines
+    kdePackages.konversation
+    kdePackages.kpat
+    kdePackages.ksudoku
+    kdePackages.ktorrent
+  ];
+
   # Packages
   environment.systemPackages = with pkgs; [
     android-tools
@@ -107,9 +126,14 @@
     easyeffects
     libnotify
     fish
-    gvfs
-    xclip
     ddcutil
+    # KDE applications
+    kdePackages.dolphin
+    kdePackages.gwenview
+    kdePackages.okular
+    kdePackages.sddm-kcm
+    wayland-utils
+    wl-clipboard
   ];
   nixpkgs.config.allowUnfree = true;
 

@@ -55,10 +55,6 @@ in
     rofi
     ksnip
     starship
-    xfce.thunar
-    xfce.thunar-volman
-    xfce.thunar-archive-plugin
-    xarchiver
   ];
 
   services = {

@@ -5,6 +5,7 @@
   ];
   programs.zen-browser = {
     enable = true;
+    suppressXdgMigrationWarning = true;
     profiles = {
       default = {
         # bookmarks, extensions, search engines ...

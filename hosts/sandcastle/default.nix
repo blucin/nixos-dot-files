@@ -48,9 +48,6 @@
     noto-fonts-color-emoji
     # Modern sans-serif
     inter
-    # Icon fonts
-    font-awesome
-    icomoon-feather
     # Monospace
     nerd-fonts.jetbrains-mono
   ];

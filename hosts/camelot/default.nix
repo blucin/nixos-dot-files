@@ -54,9 +54,6 @@
     noto-fonts-color-emoji
     # Modern sans-serif
     inter
-    # Icon fonts
-    font-awesome
-    icomoon-feather
     # Monospace
     nerd-fonts.jetbrains-mono
   ];
@@ -64,9 +61,6 @@
   # Services
   services = {
     xserver.enable = true;
-
-    # Keep i3 as an available session
-    xserver.windowManager.i3.enable = true;
 
     # KDE Plasma 6 on Wayland
     desktopManager.plasma6.enable = true;
@@ -145,7 +139,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-  programs.nm-applet.enable = true;
 
   # Nix
   nix.settings.experimental-features = [

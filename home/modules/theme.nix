@@ -29,8 +29,5 @@
     dejavu_fonts
     # Monospace fonts
     nerd-fonts.jetbrains-mono
-    # Icon fonts for rofi power menu
-    icomoon-feather
-    font-awesome
   ];
 }

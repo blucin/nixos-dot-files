@@ -9,11 +9,7 @@ in
   };
 
   imports = [
-    ./modules/i3
-    ./modules/dunst
-    ./modules/polybar
     ./modules/fish
-    ./modules/rofi
     ./modules/alacritty
     ./modules/starship
     ./modules/nodejs.nix
@@ -32,11 +28,8 @@ in
     btop
     copyq
     easyeffects
-    feh
     obsidian
-    polybarFull
     ungoogled-chromium
-    dunst
     git
     gimp3
     htop
@@ -49,10 +42,8 @@ in
     ncdu
     nitch
     nil
-    nitrogen
     docker-compose
     zed-editor
-    rofi
     ksnip
     starship
   ];

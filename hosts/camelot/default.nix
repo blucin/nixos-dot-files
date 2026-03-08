@@ -145,6 +145,7 @@
     "nix-command"
     "flakes"
   ];
+
   nix.gc = {
     automatic = true;
     dates = "weekly";

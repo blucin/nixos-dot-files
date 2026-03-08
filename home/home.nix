@@ -12,6 +12,7 @@ in
     ./modules/fish
     ./modules/alacritty
     ./modules/starship
+    ./modules/direnv.nix
     ./modules/nodejs.nix
     ./modules/rust.nix
     ./modules/git.nix

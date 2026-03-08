@@ -51,3 +51,7 @@ abbr glog git --no-pager log -n 10 --oneline --parents --graph --decorate
 abbr cat bat
 
 abbr hx helix
+
+if type -q direnv
+    direnv hook fish | source
+end

@@ -30,12 +30,12 @@ in
     copyq
     easyeffects
     obsidian
-    ungoogled-chromium
+    vscodium-fhs
+    krita
     git
     gimp3
     htop
     lazygit
-    lens
     home-manager
     just
     vesktop

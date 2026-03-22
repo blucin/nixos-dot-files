@@ -18,6 +18,7 @@ in
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix
+    ./modules/steam.nix
   ];
 
   home.username = username;
@@ -30,7 +31,8 @@ in
     copyq
     easyeffects
     obsidian
-    vscodium-fhs
+    vscode-fhs
+    steam
     krita
     git
     gimp3

@@ -19,6 +19,7 @@ in
     ./modules/zen-browser.nix
     ./modules/theme.nix
     ./modules/steam.nix
+    ./modules/java.nix
   ];
 
   home.username = username;

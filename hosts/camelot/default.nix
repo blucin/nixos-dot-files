@@ -30,6 +30,10 @@
     enable = true;
     allowPing = true;
     # 27027 - Syncthing
+    allowedTCPPorts = [
+      1024  # Ephemeral ports for various applications
+      25565 # Minecraft LAN
+    ];
     allowedUDPPorts = [
       21027
     ];
@@ -78,6 +82,7 @@
       pulse.enable = true;
     };
     openssh.enable = true;
+    tailscale.enable = true;
   };
 
   # Users

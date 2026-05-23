@@ -13,8 +13,6 @@ in
     ./modules/alacritty
     ./modules/starship
     ./modules/direnv.nix
-    ./modules/nodejs.nix
-    ./modules/rust.nix
     ./modules/git.nix
     ./modules/zen-browser.nix
     ./modules/theme.nix
@@ -32,6 +30,7 @@ in
     easyeffects
     obsidian
     vscode-fhs
+    anki-bin
     steam
     krita
     git

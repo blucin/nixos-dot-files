@@ -17,6 +17,7 @@ in
     ./modules/zen-browser.nix
     ./modules/theme.nix
     ./modules/java.nix
+    ./modules/openwebui.nix
   ];
 
   home.username = username;
@@ -26,15 +27,12 @@ in
     alacritty
     bat
     btop
-    copyq
     easyeffects
     obsidian
+    opencode
     vscode-fhs
     anki-bin
-    steam
-    krita
     git
-    gimp3
     htop
     lazygit
     home-manager
@@ -44,9 +42,7 @@ in
     ncdu
     nitch
     nil
-    docker-compose
     zed-editor
-    ksnip
     starship
   ];
 

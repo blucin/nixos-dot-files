@@ -28,5 +28,9 @@ clean-hm IDS=default:
         home-manager remove-generations {{ IDS }}; \
     fi
 
-gc:
+gc-sys:
     sudo nix-collect-garbage --delete-old
+
+gc-hm:
+    nix-collect-garbage --delete-old
+

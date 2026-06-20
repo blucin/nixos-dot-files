@@ -64,6 +64,14 @@
 
   # Services
   services = {
+    open-webui = {
+      enable = true;
+      environment = {
+        WEBUI_AUTH = "False";
+        ANONYMIZED_TELEMETRY = "False";
+      };
+    };
+
     xserver.enable = true;
 
     # KDE Plasma 6 on Wayland

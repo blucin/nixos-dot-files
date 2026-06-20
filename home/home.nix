@@ -17,7 +17,6 @@ in
     ./modules/zen-browser.nix
     ./modules/theme.nix
     ./modules/java.nix
-    ./modules/openwebui.nix
   ];
 
   home.username = username;
